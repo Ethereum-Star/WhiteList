@@ -3,6 +3,7 @@ a open source DApp white list for all wallets with sustainable maintaince by com
 
 1. Formate
 jason formate like this:
+```
 {
 "updated": "2023-06-12",
 "total": 192,
@@ -24,6 +25,7 @@ jason formate like this:
 }
 ]
 }
+```
 
 2. Every item will be check and verify for 3 layers to guarantee the dapp is right and not fake.
 3. Providing a bounty to find the wrong items.(just open a new PR)
