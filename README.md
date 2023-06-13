@@ -28,6 +28,6 @@ jason formate like this:
 ```
 
 2. Every item will be check and verify for 3 layers to guarantee the dapp is right and not fake.
-3. Providing a bounty to find the wrong items.(just open a new PR)
-4. We would provide a API endpoint later
+3. Providing a bounty to find the wrong items(just open a new PR).
+4. We would provide a API endpoint later.
 
