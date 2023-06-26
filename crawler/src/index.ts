@@ -3,7 +3,7 @@ import alchemy_crawler from "./alchemy";
 import createTable from "./create_table";
 
 async function run() {
-  // 如果没有数据库则创建数据库
+  // Create a database if it doesn't exist
   await createTable().catch(console.error);
   await alchemy_crawler();
   // await test_crawler();

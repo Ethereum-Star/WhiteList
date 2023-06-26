@@ -7,7 +7,7 @@ import { PoolData } from "../../database";
 
 async function alchemy_crawler() {
   const url = sites.Alchemy;
-  let currentPage = 1; // 当前页码
+  let currentPage = 1; // current page number
   let dappList: DappList[] = [];
 
   const pool = new Pool(PoolData);
@@ -70,26 +70,26 @@ async function alchemy_crawler() {
         dappList = [];
       }
 
-      // 模拟点击 Next 按钮
-      const nextPageButton = $(".cms-load_next-button"); // 根据实际情况选择正确的选择器
+      // get next page
+      const nextPageButton = $(".cms-load_next-button");
       if (nextPageButton.length) {
-        // 如果存在下一页按钮
+        // if there is next page button
         const nextPageUrl = nextPageButton.attr("href");
         if (nextPageUrl) {
-          // 使用 axios 或其他库发送 GET 请求获取下一页的内容
+          // use axios to get next page
           const nextPageResponse = await axios.get(`${url}/${nextPageUrl}`);
-          // 更新当前页码和 HTML 内容
+          // update html and $ for next page
           currentPage++;
           html = nextPageResponse.data;
           $ = cheerio.load(html);
         } else {
-          // 如果没有下一页的 URL，表示已经到达最后一页，结束循环
+          // if there is no next page button, end the loop
           break;
         }
-        // 暂停 10 秒钟，避免对服务器造成太大压力
+        // 10s delay
         await new Promise((resolve) => setTimeout(resolve, 10000));
       } else {
-        // 如果没有下一页按钮，表示已经到达最后一页，结束循环
+        // if there is no next page button, end the loop
         break;
       }
     }
