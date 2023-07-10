@@ -8,6 +8,6 @@ export const sites = {
   DefiLlama: "https://defillama.com/",
   Etherscan: "https://etherscan.io/",
   TokenPocket: "https://www.tokenpocket.pro/",
-  ScamSniffer: "https://www.scamsniffer.io/",
-  MetaMask: "https://github.com/MetaMask/eth-phishing-detect/",
+  ScamSniffer: "https://www.scamsniffer.io/", // do not have open list
+  MetaMask: "https://github.com/MetaMask/eth-phishing-detect/", // have open json list, do not need to crawl
 };
