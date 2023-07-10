@@ -1,11 +1,15 @@
-import alchemy_crawler from "./alchemy";
-// import test_crawler from "./test";
 import createTable from "./create_table";
+import alchemy_crawler from "./alchemy";
+import dappradar_crawler from "./dappradar";
+// import test_crawler from "./test";
 
 async function run() {
   // Create a database if it doesn't exist
   await createTable().catch(console.error);
-  await alchemy_crawler();
+
+  // Run crawlers
+  await dappradar_crawler();
+  // await alchemy_crawler();
   // await test_crawler();
 }
 
