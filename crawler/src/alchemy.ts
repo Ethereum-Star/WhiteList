@@ -16,7 +16,7 @@ async function alchemy_crawler() {
     const response = await axios.get(`${url}?8c945ae6_page=${currentPage}`);
     let html = response.data;
     while (true) {
-      console.log(`Crawling Alchemy page ${currentPage}...`);
+      console.log(`Crawling page ${currentPage}...`);
       let $ = cheerio.load(html);
 
       // .is--dapp
@@ -94,7 +94,7 @@ async function alchemy_crawler() {
       }
     }
   } catch (error) {
-    console.error("Error occurred during alchemy scraping:", error);
+    console.error("Error occurred during web scraping:", error);
   }
 }
 
