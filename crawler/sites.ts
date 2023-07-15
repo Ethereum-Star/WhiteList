@@ -2,8 +2,8 @@
 export const sites = {
   Alchemy: "https://www.alchemy.com/dapps",
   DappRadar: "https://dappradar.com/rankings",
-  Coinbase: "https://www.coinbase.com/web3/",
-  Coinmarketcap: "https://coinmarketcap.com/api/",
+  Coinbase: "https://www.coinbase.com/web3",
+  Coinmarketcap: "https://coinmarketcap.com/api",
   Debank: "https://debank.com/",
   DefiLlama: "https://defillama.com/",
   Etherscan: "https://etherscan.io/",
