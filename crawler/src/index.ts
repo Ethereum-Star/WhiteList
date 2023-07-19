@@ -2,16 +2,18 @@ import createTable from "./create_table";
 import alchemy_crawler from "./alchemy";
 import dappradar_crawler from "./dappradar";
 import coinbase_crawler from "./coinbase";
+import coinmarketcap_crawler from "./coinmarketcap";
 // import test_crawler from "./test";
 
 async function run() {
   // Create a database if it doesn't exist
   await createTable().catch(console.error);
-  await coinbase_crawler();
+
   // Run crawlers
   // await alchemy_crawler();
   // await dappradar_crawler();
-
+  // await coinbase_crawler();
+  await coinmarketcap_crawler();
   // await test_crawler();
 }
 
