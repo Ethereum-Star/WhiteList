@@ -5,7 +5,7 @@ export const sites = {
   Coinbase: "https://www.coinbase.com/web3",
   Coinmarketcap: "https://coinmarketcap.com",
   Debank: "https://debank.com/",
-  DefiLlama: "https://defillama.com/",
+  DefiLlama: "https://api.llama.fi",
   Etherscan: "https://etherscan.io/",
   TokenPocket: "https://www.tokenpocket.pro/",
   ScamSniffer: "https://www.scamsniffer.io/", // do not have open list

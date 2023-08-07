@@ -3,6 +3,7 @@ import alchemy_crawler from "./alchemy";
 import dappradar_crawler from "./dappradar";
 import coinbase_crawler from "./coinbase";
 import coinmarketcap_crawler from "./coinmarketcap";
+import defiLlama_crawler from "./defillama";
 // import test_crawler from "./test";
 
 /**
@@ -33,6 +34,7 @@ async function run() {
   // await dappradar_crawler();
   await coinbase_crawler();
   // await coinmarketcap_crawler();
+  await defiLlama_crawler();
   // await test_crawler();
 }
 
@@ -40,4 +42,4 @@ async function run() {
 // const interval = 1000 * 60 * 60 * 24 * 7; // 1 week
 // setInterval(run, interval);
 
-run();
+run()
