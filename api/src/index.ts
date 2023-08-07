@@ -2,6 +2,8 @@ import express from "express";
 import { Pool } from "pg";
 import { PoolData } from "../../database";
 
+import defiLlama_crawler from "../../crawler/src/defillama"
+
 const app = express();
 const port = 3000;
 
@@ -20,6 +22,10 @@ app.get("/api/data", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Hello, World! Welcome to the Whitelist API!");
 });
+
+app.get("/crawler", async (req, res) =>{
+  await defiLlama_crawler();
+})
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
