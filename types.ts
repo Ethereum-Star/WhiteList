@@ -4,3 +4,8 @@ export interface DappList {
   dapp_url: string;
   contract_addr: string;
 }
+
+export interface BlackList{
+  site_name: string;
+  report_site: string;
+}

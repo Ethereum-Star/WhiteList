@@ -1,10 +1,10 @@
 import {sites} from "../sites";
 import {DappList} from "../../types";
 import axios from "axios";
-import {ToDb} from "./general/db";
+import {WhiteListToDb} from "./general/db";
 
 async function defiLlama_crawler(){
-    const url = sites.DefiLlama;
+    const url = sites.DefiLlamaApi;
     let dappList: DappList[] = [];
 
     // const pool = new Pool(PoolData);
@@ -27,7 +27,7 @@ async function defiLlama_crawler(){
         console.error("Error occurred during DefiLlama scraping:", error);
     }
 
-    await ToDb(dappList, "DefiLlama")
+    await WhiteListToDb(dappList, "DefiLlama")
 }
 
 export default defiLlama_crawler;
