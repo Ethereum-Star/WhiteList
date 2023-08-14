@@ -35,10 +35,11 @@ export async function BlackListToDb(blackList: BlackList[], src: string){
     if (blackList.length > 0) {
         const client = await pool.connect();
         try {
-            const insertSql = `INSERT INTO dapp_list(site_name, dapp_name, dapp_url, contract_addr) VALUES($1, $2, $3, $4)`;
+            const insertSql = `INSERT INTO dapp_list_blacklist(site_name, report_site) VALUES($1, $2)`;
             for (const dapp of blackList) {
                 await client.query(insertSql, [
                     dapp.site_name,
+                    dapp.report_site
                 ]);
             }
             console.log(src + " dapp list inserted successfully!");
