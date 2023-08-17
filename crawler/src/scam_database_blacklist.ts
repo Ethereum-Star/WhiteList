@@ -4,42 +4,40 @@ import {BlackListToDb} from "./general/db";
 import gitETL from "./general/etl";
 import fs from "fs";
 
-async function metamask_blacklist_crawler() {
-    const url = sites.MetaMask + ".git";
+async function scam_db_crawler() {
+    const url = sites.ScamDB + ".git";
     let blackList: BlackList[] = [];
 
     try {
         await gitETL(url, walkDir, pushToDB)
 
     } catch (error) {
-        console.error("Error occurred during MetaMask scraping:", error);
+        console.error("Error occurred during ScamDatabase scraping:", error);
     }
 
     await BlackListToDb(blackList, "MetaMask")
 }
 
-export default metamask_blacklist_crawler;
+export default scam_db_crawler;
 
 
 const walkDir = (repoDir: string): Array<string> => {
     let json;
-    const file = repoDir + '/src/config.json';
+    const file = repoDir + '/blacklist/domains.json';
     if (fs.existsSync(file)) {//判断是否存在此文件
         json = JSON.parse(fs.readFileSync(file, "utf8"));
     } else {
         json = null
     }
-
     if (json != null) {
         const ret = new Array<string>()
-        for (let i = 0; i < json.blacklist.length; i++) {
-            ret.push(json.blacklist[i])
+        for (let i = 0; i < json.length; i++) {
+            ret.push(json[i])
         }
         return ret;
     } else {
         return [];
     }
-
 }
 
 const pushToDB = async (list: Array<string>): Promise<void> => {
@@ -47,9 +45,9 @@ const pushToDB = async (list: Array<string>): Promise<void> => {
     for (let i = 0; i < list.length; i++) {
         blackList[i] = {
             site_name: list[i],
-            report_site: "MetaMask_BlackList",
+            report_site: "ScamDatabase_BlackList",
         };
     }
 
-    await BlackListToDb(blackList, "metamask")
+    await BlackListToDb(blackList, "scam_database")
 }
