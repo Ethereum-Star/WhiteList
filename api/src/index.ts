@@ -4,6 +4,7 @@ import { PoolData } from "../../database";
 
 // WIP: testing
 import metamask_blacklist_crawler from "../../crawler/src/metamask_blacklist";
+import scam_database_blacklist from "../../crawler/src/scam_database_blacklist";
 
 const app = express();
 const port = 3000;
