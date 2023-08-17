@@ -53,3 +53,51 @@ export async function BlackListToDb(blackList: BlackList[], src: string){
         }
     }
 }
+
+// 从白名单数据库中读取域名，返回命中数量
+export async function ReadBlackListFromDB(domain: string):Promise<number | null>{
+    const pool = new Pool(PoolData);
+
+    const client = await pool.connect();
+    try {
+        const sql = `select 1 from dapp_list_blacklist where site_name = $1 group by report_site`;
+        const ret = await client.query(sql, [
+            domain
+        ]);
+
+        return ret.rowCount
+    } catch (error) {
+        console.error(
+            "Error occurred during read whitelist:",
+            error
+        );
+        return null
+    } finally {
+        client.release();
+    }
+}
+
+
+
+// 从黑名单数据库中读取域名，返回命中数量
+export async function ReadWhiteListFromDB(domain: string):Promise<number | null>{
+    const pool = new Pool(PoolData);
+
+    const client = await pool.connect();
+    try {
+        const sql = `select 1 from dapp_list where dapp_url = $1 group by site_name`;
+        const ret = await client.query(sql, [
+            domain
+        ]);
+
+        return ret.rowCount
+    } catch (error) {
+        console.error(
+            "Error occurred during read white list:",
+            error
+        );
+        return null
+    } finally {
+        client.release();
+    }
+}
