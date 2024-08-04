@@ -16,6 +16,15 @@ async function createTable() {
     await client.query(createTableQuery);
 
     console.log("Table created successfully!");
+
+    const createTableBlackListDDL = `CREATE TABLE IF NOT EXISTS dapp_list_blacklist(
+            id SERIAL PRIMARY KEY,
+            site_name VARCHAR(255) NOT NULL,
+            report_site VARCHAR(255) NOT NULL
+        )`;
+
+    await client.query(createTableBlackListDDL);
+
   } catch (error) {
     console.error("Error occurred during creating table:", error);
   } finally {

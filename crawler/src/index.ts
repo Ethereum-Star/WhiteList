@@ -4,6 +4,8 @@ import dappradar_crawler from "./dappradar";
 import coinbase_crawler from "./coinbase";
 import coinmarketcap_crawler from "./coinmarketcap";
 import defiLlama_crawler from "./defillama";
+import debank from "./debank";
+import debank_crawler from "./debank";
 // import test_crawler from "./test";
 
 /**
@@ -35,6 +37,7 @@ async function run() {
   await coinbase_crawler();
   // await coinmarketcap_crawler();
   await defiLlama_crawler();
+  await debank_crawler();
   // await test_crawler();
 }
 
